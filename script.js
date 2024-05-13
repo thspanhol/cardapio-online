@@ -11,17 +11,17 @@ const addressWarn = document.getElementById("address-warn");
 
 // Abrir o modal do carrinho
 cartBtn.addEventListener("click", () => {
-    cartModal.style.display = "flex"
-})
+  cartModal.style.display = "flex";
+});
 
 // Fechar o modal quando clicar fora
 cartModal.addEventListener("click", (e) => {
-    if(e.target === cartModal){
-        cartModal.style.display = "none"
-    }
-})
+  if (e.target === cartModal) {
+    cartModal.style.display = "none";
+  }
+});
 
 // Fechar o modal do carrinho pelo botão
 closeModalBtn.addEventListener("click", () => {
-    cartModal.style.display = "none"
-})
+  cartModal.style.display = "none";
+});
