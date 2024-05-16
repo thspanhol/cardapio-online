@@ -30,20 +30,20 @@ closeModalBtn.addEventListener("click", () => {
 });
 
 menu.addEventListener("click", (e) => {
-  let parentButton = e.target.closest(".add-to-cart-btn")
+  let parentButton = e.target.closest(".add-to-cart-btn");
 
-  if(parentButton){
-    const name = parentButton.getAttribute("data-name")
-    const price = parseFloat(parentButton.getAttribute("data-price"))
-    addToCart(name, price)
+  if (parentButton) {
+    const name = parentButton.getAttribute("data-name");
+    const price = parseFloat(parentButton.getAttribute("data-price"));
+    addToCart(name, price);
   }
-})
+});
 
 // Função para adicionar ao carrinho
 const addToCart = (name, price) => {
-  const existingItem = cart.find(item => item.name === name)
+  const existingItem = cart.find((item) => item.name === name);
 
-  if(existingItem){
+  if (existingItem) {
     // Se o item já existe, aumenta apenas a quantidade
     existingItem.quantity += 1;
   } else {
@@ -51,19 +51,24 @@ const addToCart = (name, price) => {
       name,
       price,
       quantity: 1,
-    })
+    });
   }
-  updateCartModal()
-}
+  updateCartModal();
+};
 
 // Atualiza o carrinho
 const updateCartModal = () => {
   cartItemsContainer.innerHTML = "";
   let total = 0;
 
-  cart.forEach(item => {
+  cart.forEach((item) => {
     const cartItemElement = document.createElement("div");
-    cartItemElement.classList.add("flex", "justify-between", "mb-4", "flex-col")
+    cartItemElement.classList.add(
+      "flex",
+      "justify-between",
+      "mb-4",
+      "flex-col"
+    );
 
     cartItemElement.innerHTML = `
     <div class="flex items-center justify-between">
@@ -79,38 +84,37 @@ const updateCartModal = () => {
         </button>
 
     </div>
-    `
+    `;
 
     total += item.price * item.quantity;
 
-    cartItemsContainer.appendChild(cartItemElement)
-  })
+    cartItemsContainer.appendChild(cartItemElement);
+  });
 
   cartTotal.textContent = total.toLocaleString("pt-BR", {
     style: "currency",
-    currency: "BRL"
+    currency: "BRL",
   });
 
   cartCounter.innerHTML = cart.length;
-
-}
+};
 
 // Função para remover o item do carrinho
 cartItemsContainer.addEventListener("click", (e) => {
-  if(e.target.classList.contains("remove-from-cart-btn")){
-    const name = e.target.getAttribute("data-name")
+  if (e.target.classList.contains("remove-from-cart-btn")) {
+    const name = e.target.getAttribute("data-name");
 
     removeItemCart(name);
   }
-})
+});
 
 const removeItemCart = (name) => {
-  const index = cart.findIndex(item => item.name === name);
+  const index = cart.findIndex((item) => item.name === name);
 
-  if(index !== -1){
+  if (index !== -1) {
     const item = cart[index];
-    
-    if(item.quantity > 1){
+
+    if (item.quantity > 1) {
       item.quantity -= 1;
       updateCartModal();
       return;
@@ -119,22 +123,22 @@ const removeItemCart = (name) => {
     cart.splice(index, 1);
     updateCartModal();
   }
-}
+};
 
 addressInput.addEventListener("input", (e) => {
   let inputValue = e.target.value;
 
-  if(inputValue !== ""){
-    addressInput.classList.remove("border-red-500")
-    addressWarn.classList.add("hidden")
+  if (inputValue !== "") {
+    addressInput.classList.remove("border-red-500");
+    addressWarn.classList.add("hidden");
   }
-})
+});
 
 checkoutBtn.addEventListener("click", () => {
-  if(cart.length === 0) return;
-  if(addressInput.value === ""){
-    addressWarn.classList.remove("hidden")
-    addressInput.classList.add("border-red-500")
+  if (cart.length === 0) return;
+  if (addressInput.value === "") {
+    addressWarn.classList.remove("hidden");
+    addressInput.classList.add("border-red-500");
     return;
   }
-})
+});
