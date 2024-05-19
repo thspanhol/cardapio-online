@@ -134,11 +134,38 @@ addressInput.addEventListener("input", (e) => {
   }
 });
 
+// Finalizar pedido
 checkoutBtn.addEventListener("click", () => {
+
+  const isOpen = checkRestaurantOpen();
+  if(!isOpen){
+    alert("Restaurante fechado no momento!")
+    return;
+  }
+
   if (cart.length === 0) return;
+  
   if (addressInput.value === "") {
     addressWarn.classList.remove("hidden");
     addressInput.classList.add("border-red-500");
     return;
   }
 });
+
+// Verificar a hora e manipular o card horário
+const checkRestaurantOpen = () => {
+  const data = new Date();
+  const hora = data.getHours();
+  return hora >= 18 && hora < 22;
+}
+
+const spanItem = document.getElementById("date-span");
+const isOpen = checkRestaurantOpen();
+
+if(isOpen){
+  spanItem.classList.remove("bg-red-500");
+  spanItem.classList.add("bg-green-600");
+}else{
+  spanItem.classList.remove("bg-green-600");
+  spanItem.classList.add("bg-red-500");
+}
