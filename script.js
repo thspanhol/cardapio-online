@@ -150,6 +150,11 @@ checkoutBtn.addEventListener("click", () => {
     addressInput.classList.add("border-red-500");
     return;
   }
+
+  // Enviar o pedido para o Whatsapp
+
+  console.log(cart);
+  
 });
 
 // Verificar a hora e manipular o card horário
