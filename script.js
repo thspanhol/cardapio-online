@@ -151,8 +151,14 @@ checkoutBtn.addEventListener("click", () => {
   }
 
   // Enviar o pedido para o Whatsapp
+  const cartItems = cart.map((item) => {
+    return(
+      ` ${item.name} Quantidade: ${item.quantity} Preço: R$${item.price} |`
+    )
+  }).join("")
 
-  console.log(cart);
+  console.log(cartItems);
+
 });
 
 // Verificar a hora e manipular o card horário
