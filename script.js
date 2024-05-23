@@ -78,7 +78,6 @@ const updateCartModal = () => {
         <p class="font-medium mt-2">R$ ${item.price.toFixed(2)}</p>
       </div>
 
-
         <button class="remove-from-cart-btn" data-name="${item.name}">
           Remover
         </button>
@@ -158,11 +157,12 @@ checkoutBtn.addEventListener("click", () => {
   }).join("")
 
   const message = encodeURIComponent(cartItems)
-  const phone = "51"
+  const phone = "5193824000"
 
   window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}` , "_blank")
 
-  console.log(cartItems);
+  cart = [];
+  updateCartModal();
 
 });
 
