@@ -150,20 +150,22 @@ checkoutBtn.addEventListener("click", () => {
   }
 
   // Enviar o pedido para o Whatsapp
-  const cartItems = cart.map((item) => {
-    return(
-      ` ${item.name} Quantidade: ${item.quantity} Preço: R$${item.price} |`
-    )
-  }).join("")
+  const cartItems = cart
+    .map((item) => {
+      return ` ${item.name} Quantidade: ${item.quantity} Preço: R$${item.price} |`;
+    })
+    .join("");
 
-  const message = encodeURIComponent(cartItems)
-  const phone = "5193824000"
+  const message = encodeURIComponent(cartItems);
+  const phone = "5193824000";
 
-  window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}` , "_blank")
+  window.open(
+    `https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`,
+    "_blank"
+  );
 
   cart = [];
   updateCartModal();
-
 });
 
 // Verificar a hora e manipular o card horário
