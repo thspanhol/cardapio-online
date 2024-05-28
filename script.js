@@ -139,14 +139,14 @@ checkoutBtn.addEventListener("click", () => {
   if (!isOpen) {
     Toastify({
       text: "Ops. O restaurante está fechado!",
-  duration: 3000,
-  close: true,
-  gravity: "top", // `top` or `bottom`
-  position: "right", // `left`, `center` or `right`
-  stopOnFocus: true, // Prevents dismissing of toast on hover
-  style: {
-    background: "#ef4444",
-  },
+      duration: 3000,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: "#ef4444",
+      },
     }).showToast();
     return;
   }
