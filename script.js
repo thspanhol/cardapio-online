@@ -95,7 +95,7 @@ const updateCartModal = () => {
     currency: "BRL",
   });
 
-  cartCounter.innerHTML = cart.length;
+  cartCounter.innerHTML = cart.reduce((total, item) => total + item.quantity, 0);
 };
 
 // Função para remover o item do carrinho
