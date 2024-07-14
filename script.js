@@ -7,6 +7,7 @@ const checkoutBtn = document.getElementById("checkout-btn");
 const closeModalBtn = document.getElementById("close-modal-btn");
 const cartCounter = document.getElementById("cart-count");
 const addressInput = document.getElementById("address");
+const observationInput = document.getElementById("observation");
 const addressWarn = document.getElementById("address-warn");
 
 let cart = [];
@@ -169,7 +170,7 @@ checkoutBtn.addEventListener("click", () => {
     })
     .join("");
 
-  const message = encodeURIComponent(cartItems);
+  const message = encodeURIComponent(cartItems + ` Observações: ${observationInput.value} |`);
   const phone = "5193824000";
 
   window.open(
@@ -185,7 +186,7 @@ checkoutBtn.addEventListener("click", () => {
 const checkRestaurantOpen = () => {
   const data = new Date();
   const hora = data.getHours();
-  return hora >= 18;
+  return hora >= 11;
   //return hora >= 18 && hora < 22;
 };
 
