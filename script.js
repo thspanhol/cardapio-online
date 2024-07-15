@@ -178,8 +178,11 @@ checkoutBtn.addEventListener("click", () => {
     "_blank"
   );
 
+  observationInput.value = '';
+  addressInput.value = '';
   cart = [];
   updateCartModal();
+  cartModal.style.display = "none";
 });
 
 // Verificar a hora e manipular o card horário
