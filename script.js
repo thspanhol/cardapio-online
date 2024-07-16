@@ -170,11 +170,11 @@ checkoutBtn.addEventListener("click", () => {
     })
     .join("");
 
-  const message = encodeURIComponent(cartItems + ` Observações: ${observationInput.value} |`);
+  const message = encodeURIComponent(cartItems + ` Observações: ${observationInput.value} | Endereço: ${addressInput.value}`);
   const phone = "5193824000";
 
   window.open(
-    `https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`,
+    `https://wa.me/${phone}?text=${message}`,
     "_blank"
   );
 
