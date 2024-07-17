@@ -183,6 +183,18 @@ checkoutBtn.addEventListener("click", () => {
   cart = [];
   updateCartModal();
   cartModal.style.display = "none";
+
+  Toastify({
+      text: "Pedido encaminhado!",
+      duration: 30000,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: "#16A34A",
+      },
+    }).showToast();
 });
 
 // Verificar a hora e manipular o card horário
