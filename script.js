@@ -170,31 +170,31 @@ checkoutBtn.addEventListener("click", () => {
     })
     .join("");
 
-  const message = encodeURIComponent(cartItems + ` Observações: ${observationInput.value} | Endereço: ${addressInput.value}`);
+  const message = encodeURIComponent(
+    cartItems +
+      ` Observações: ${observationInput.value} | Endereço: ${addressInput.value}`
+  );
   const phone = "5193824000";
 
-  window.open(
-    `https://wa.me/${phone}?text=${message}`,
-    "_blank"
-  );
+  window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
 
-  observationInput.value = '';
-  addressInput.value = '';
+  observationInput.value = "";
+  addressInput.value = "";
   cart = [];
   updateCartModal();
   cartModal.style.display = "none";
 
   Toastify({
-      text: "Pedido encaminhado!",
-      duration: 30000,
-      close: true,
-      gravity: "top", // `top` or `bottom`
-      position: "right", // `left`, `center` or `right`
-      stopOnFocus: true, // Prevents dismissing of toast on hover
-      style: {
-        background: "#16A34A",
-      },
-    }).showToast();
+    text: "Pedido encaminhado!",
+    duration: 30000,
+    close: true,
+    gravity: "top", // `top` or `bottom`
+    position: "right", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    style: {
+      background: "#16A34A",
+    },
+  }).showToast();
 });
 
 // Verificar a hora e manipular o card horário
