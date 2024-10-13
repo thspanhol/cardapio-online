@@ -9,6 +9,9 @@ const cartCounter = document.getElementById("cart-count");
 const addressInput = document.getElementById("address");
 const observationInput = document.getElementById("observation");
 const addressWarn = document.getElementById("address-warn");
+const formName = document.getElementById("form-name");
+const formEmail = document.getElementById("form-email");
+const formMessage = document.getElementById("form-message");
 
 let cart = [];
 
@@ -138,7 +141,8 @@ addressInput.addEventListener("input", (e) => {
 });
 
 // Finalizar pedido
-checkoutBtn.addEventListener("click", () => {
+checkoutBtn.addEventListener("click", (e) => {
+  //e.preventDefault()
   const isOpen = checkRestaurantOpen();
   if (!isOpen) {
     Toastify({
@@ -158,6 +162,7 @@ checkoutBtn.addEventListener("click", () => {
   if (cart.length === 0) return;
 
   if (addressInput.value === "") {
+    e.preventDefault()
     addressWarn.classList.remove("hidden");
     addressInput.classList.add("border-red-500");
     return;
@@ -177,6 +182,10 @@ checkoutBtn.addEventListener("click", () => {
   const phone = "5193824000";
 
   window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+
+  formName.value = `Novo Pedido (Valor Total: ${cartTotal.textContent})`;
+  formEmail.value = `Endereço: ${addressInput.value}`;
+  formMessage.value = cartItems;
 
   observationInput.value = "";
   addressInput.value = "";
@@ -201,7 +210,7 @@ checkoutBtn.addEventListener("click", () => {
 const checkRestaurantOpen = () => {
   const data = new Date();
   const hora = data.getHours();
-  return hora >= 11;
+  return hora >= 0;
   //return hora >= 18 && hora < 22;
 };
 

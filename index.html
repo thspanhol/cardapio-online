@@ -234,10 +234,30 @@
     <!--MENU-->
 
     <!--MODAL CARRINHO-->
-    <div
+    <form
+      action="https://api.staticforms.xyz/submit"
+      method="post"
       class="bg-black/60 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden"
       id="cart-modal"
     >
+      <input type="text" name="honeypot" style="display: none" />
+      <!-- <input type="hidden" name="accessKey" value="83b9326e-95eb-4cd1-842c-a971c044658a"> -->
+      <input
+        type="hidden"
+        name="accessKey"
+        value="6869678f-ed83-4c18-99c5-9a8de0bb6a73"
+      />
+      <input type="hidden" name="subject" value="Dev Bueguer - Pedido" />
+      <input type="hidden" name="redirectTo" value="http://127.0.0.1:5500/" />
+      <input type="hidden" name="name" id="form-name" value="Nome Teste" />
+      <input type="hidden" name="email" id="form-email" value="Email Teste" />
+      <input
+        type="hidden"
+        name="message"
+        id="form-message"
+        value="Descrição Burguers"
+      />
+
       <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px]">
         <h2 class="text-center font-bold text-2xl mb-2">Meu Carrinho</h2>
 
@@ -269,12 +289,13 @@
           <button
             id="checkout-btn"
             class="bg-green-500 text-white px-4 py-1 rounded"
+            type="submit"
           >
             Finalizar pedido
           </button>
         </div>
       </div>
-    </div>
+    </form>
     <!--MODAL CARRINHO-->
 
     <!--BOTÃO FOOTER-->
