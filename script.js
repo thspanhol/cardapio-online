@@ -162,7 +162,7 @@ checkoutBtn.addEventListener("click", (e) => {
   if (cart.length === 0) return;
 
   if (addressInput.value === "") {
-    e.preventDefault()
+    e.preventDefault();
     addressWarn.classList.remove("hidden");
     addressInput.classList.add("border-red-500");
     return;
